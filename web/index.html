@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>shell</title>
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/dist/css/bootstrap.min.css">
+    <script type="text/javascript" src="/static/js/jquery-2.1.3.min.js"}></script>
+    <script type="text/javascript" src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+</head>
+<body>
+<div id="page">
+    <div class="menu-div"></div>
+
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $.getJSON("/store/class.json", function(data){
+
+    });
+    $.getJSON("/store/index.json", function(data){
+        var str = "";
+        $.each(data, function(key, value){
+            var href = "/chapter.html?id=" + key;
+            str += "<a class='menu-list-link' href='" + href + "''>" + value[0] + "</a><br>";
+        });
+        $(".menu-div").html(str);
+    });
+});
+
+</script>
+</body>
+</html>
+

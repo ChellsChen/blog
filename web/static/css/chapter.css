@@ -1,0 +1,16 @@
+@charset "UTF-8";
+/**
+ *
+ * date    2015-06-29 19:07:39
+ * authors 陈小雪
+ * email   shell_chen@yeah.net
+ * version v1.0.1
+ */
+
+.content-header{
+    height: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #0f0f0f;
+}
