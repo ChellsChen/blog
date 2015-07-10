@@ -50,3 +50,30 @@ body{
     border-top-width: 0px;
     box-shadow: rgba(100, 100, 100, 0.298039) 0px 2px 6px 0px;
 }
+
+.cls-l-span{
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 4px;
+}
+.cls-desc-span{
+    font-size: 18px;
+    color: #0f0f0f;
+}
+.customer-row{
+    margin: 0;
+}
+.m-t-4{
+    margin-top: 40px;
+}
+.m-b-2{
+    margin-bottom: 20px;
+}
+.border-left{
+    border-right: solid 2px #bebebe;
+    min-height: 700px;
+}
+.content-page{
+    padding: 40px 20px;
+}
