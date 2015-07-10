@@ -42,6 +42,10 @@
 <script type="text/javascript">
 
 $(document).ready(function(){
+    $(".cls-l-div").on("click",".cls-l-span",function(){
+        var cls = $(this).attr("name");
+        showmenu(cls);
+    });
     datainit();
     show();
 });

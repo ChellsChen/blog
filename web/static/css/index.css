@@ -27,7 +27,7 @@ body{
     margin-right: auto;
     margin-top: 48px;
     margin-bottom: 48px;
-    width: 1120px;
+    width: 960px;
     min-width: 560px;
     background-color: #fff;
     min-height: 800px;
@@ -69,6 +69,12 @@ body{
 }
 .m-b-2{
     margin-bottom: 20px;
+}
+.m-l-2{
+    margin-left: 20px;
+}
+.m-r-2{
+    margin-right: 20px;
 }
 .border-left{
     border-right: solid 2px #bebebe;

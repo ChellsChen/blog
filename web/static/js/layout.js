@@ -40,6 +40,7 @@ function showclass(){
         "label-default",
         ];
     var str = "";
+    str += "<span class='label label-danger cls-l-span'>ALL</span><br>";
     var i = 0;
     $.each(CLASS,function(key, value){
         str += "<span class='label "+label_list[i]+" cls-l-span' name='"+key+"'>"+key+"</span><br>";
@@ -55,7 +56,7 @@ function showmenu(cls){
         var indexs = CLASS[cls];
         $.each(indexs, function(index, number){
             href += number;
-            var title = INDEX[index];
+            var title = INDEX[number][0];
 
             str += "<a class='menu-list-link list-group-item list-group-item-info' href='" + href + "''>" + title + "</a><br>";
         });
