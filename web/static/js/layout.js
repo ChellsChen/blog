@@ -56,7 +56,7 @@ function showmenu(cls){
         var indexs = CLASS[cls];
         $.each(indexs, function(index, number){
             href += number;
-            var title = INDEX[number][0];
+            var title = INDEX[number].title;
 
             str += "<a class='menu-list-link list-group-item list-group-item-info' href='" + href + "''>" + title + "</a><br>";
         });
@@ -64,7 +64,8 @@ function showmenu(cls){
     else{
         $.each(INDEX, function(key, value){
             var h = href + key;
-            str += "<a class='menu-list-link list-group-item list-group-item-info' href='" + h + "''>" + value[0] + "</a><br>";
+            var t = value.title;
+            str += "<a class='menu-list-link list-group-item list-group-item-info' href='" + h + "''>" + t + "</a><br>";
         });
     }
     $(".menu-div").html(str);
