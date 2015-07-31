@@ -64,7 +64,7 @@ function showmenu(cls){
     for(var i in indexs){
         var infos = indexs[i],
             post = infos.post,
-            title = infos.title,
+            title = infos.title;
         var link  = href + i;
 
         if (post != "1" || post!= 1) continue;
