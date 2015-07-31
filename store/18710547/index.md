@@ -1,6 +1,11 @@
-### jquery对象扩展
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Title:jquery对象扩展
+%Class: javascript
+%Post:1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-#######1.$.extend()
+# jquery对象扩展
+###1.$.extend()
 > 原型: extend( target [, object] [, objectN ] )
 > 合并 object1内容和objectn内容的到target中去, target对象被改变,
 这个函数的功能是实现的拷贝功能,即将一个对象拷贝到另一个对象中去
@@ -15,10 +20,6 @@ code:
 > 递归合并的功能 在jquery 1.1.4以后才加入的, 默认递归合并是false
 
 
-#######2. $.fn.extend()
+###2. $.fn.extend()
 > 原型: $.fn.extend(object)
 > 将对象合并到jquery实例中去
-
-
-
-
