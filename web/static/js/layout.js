@@ -65,11 +65,11 @@ function showmenu(cls){
         var infos = indexs[i],
             post = infos.post,
             title = infos.title,
-            href = href + i;
+        var link  = href + i;
 
         if (post != "1" || post!= 1) continue;
 
-        str += "<a class='menu-list-link list-group-item list-group-item-info' href='" + href + "''>" + title + "</a><br>";
+        str += "<a class='menu-list-link list-group-item list-group-item-info' href='" + link + "''>" + title + "</a><br>";
     }
 
     $(".menu-div").html(str);
