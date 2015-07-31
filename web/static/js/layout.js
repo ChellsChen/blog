@@ -52,21 +52,25 @@ function showclass(){
 function showmenu(cls){
     var str = "";
     var href = "/chapter.html?id=";
+    var indexs = { };
     if(cls){
-        var indexs = CLASS[cls];
-        $.each(indexs, function(index, number){
-            href += number;
-            var title = INDEX[number].title;
+        var list = CLASS[cls]
+        for(var j=0; j< list.length;j++){
+            indexs[list[j]] = INDEX[list[j]];
+        }
+    }
+    else {indexs = INDEX;}
 
-            str += "<a class='menu-list-link list-group-item list-group-item-info' href='" + href + "''>" + title + "</a><br>";
-        });
+    for(var i in indexs){
+        var infos = indexs[i],
+            post = infos.post,
+            title = infos.title,
+            href = href + i;
+
+        if (post != "1" || post!= 1) continue;
+
+        str += "<a class='menu-list-link list-group-item list-group-item-info' href='" + href + "''>" + title + "</a><br>";
     }
-    else{
-        $.each(INDEX, function(key, value){
-            var h = href + key;
-            var t = value.title;
-            str += "<a class='menu-list-link list-group-item list-group-item-info' href='" + h + "''>" + t + "</a><br>";
-        });
-    }
+
     $(".menu-div").html(str);
 }
