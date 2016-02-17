@@ -1,0 +1,41 @@
+@charset "UTF-8";
+/**
+ *
+ * @authors 陈小雪 (shell_chen@yeah.net)
+ * @date    2016-02-03 11:48:31
+ * @version $Id$
+ */
+
+body{
+    /*border-right: 5px solid #333;*/
+}
+.tags{
+    margin:0px 0 10px 0;
+}
+
+div.tag-navbar{
+    display:inline-block;
+    color:#333;
+    margin-right:10px;
+    margin-top:-5px;
+    border-radius:0 0 5px 5px;
+    border-bottom:1px solid #4d4d4d;
+    transition:all ease-in-out .3s
+    display: inline-block;
+    padding: 0px 10px 5px;
+    cursor: pointer;
+}
+div.tag-navbar:hover{
+    color:#f5f5f5;
+    border-bottom:none;
+    background-color:#333;
+    /*transform:translateY(5px);*/
+}
+div.current-page{
+    color:#f5f5f5;
+    background-color: #333;
+    border-bottom:none
+}
+div.left{
+
+}

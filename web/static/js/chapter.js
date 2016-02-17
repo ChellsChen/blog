@@ -18,7 +18,7 @@ $(document).ready(function(){
     var id = GetUrlParams().id;
     if(id){
         $.ajax({
-            url:"/store/"+id+"/index.html",
+            url:"../store/"+id+"/index.html",
             async:false,
             success:function(data){
                 $("#content").html(data);

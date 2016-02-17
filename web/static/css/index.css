@@ -83,3 +83,18 @@ body{
 .content-page{
     padding: 40px 20px;
 }
+.ta-r{
+    text-align: right;
+    color: #606060;
+}
+#menu-table{
+    font-size: 16px;
+}
+table#menu-table>tbody>tr>td{
+    border: none;
+    padding: 5px;
+}
+
+table#menu-table>tbody>tr>td>a:hover{
+    text-decoration: none;
+}

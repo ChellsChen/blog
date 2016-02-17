@@ -1,32 +1,22 @@
-var CLASS;
-var INDEX;
-var TAGS;
-var INDEX_URL = "/store/index.json"
-var CLASS_URL = "/store/class.json"
-var TAGS_URL = " /store/tags.json"
+
+var CONFIG_URL = "../store/config"
+
 
 function datainit(){
-    INDEX = getJsonData(INDEX_URL);
-    CLASS = getJsonData(CLASS_URL);
-    TAGS = getJsonData(TAGS_URL);
-}
-
-function getJsonData(url){
-    var jsondata;
     $.ajax({
-        url:url,
+        url:CONFIG_URL,
         async:false,
         dataType:"json",
         success:function(data){
-            jsondata = data;
+            CONFIG = data;
+            show();
         }
     });
-    return jsondata;
 }
 
 
 function show(){
-    showclass();
+    // showclass();
     showmenu();
 }
 
@@ -41,36 +31,93 @@ function showclass(){
         ];
     var str = "";
     str += "<span class='label label-danger cls-l-span'>ALL</span><br>";
-    var i = 0;
-    $.each(CLASS,function(key, value){
-        str += "<span class='label "+label_list[i]+" cls-l-span' name='"+key+"'>"+key+"</span><br>";
+    var i = 0,
+	tags = CONFIG.tags;
+    for( var tag in tags){
+	if(tags[tag].length < 1) continue;
+	if(get_articles_by_tag(tag).length < 1) continue;
+	var index = i % label_list.length;
+	str += "<span class='label "+ label_list[index] +" cls-l-span' name='"+tag+"'>"+tag+"</span><br>";
         i++;
-    });
+    }
+
     $(".cls-l-div").html(str);
 }
 
-function showmenu(cls){
-    var str = "";
-    var href = "/chapter.html?id=";
-    var indexs = { };
-    if(cls){
-        var list = CLASS[cls]
-        for(var j=0; j< list.length;j++){
-            indexs[list[j]] = INDEX[list[j]];
-        }
-    }
-    else {indexs = INDEX;}
+function get_articles_by_tag(cls){
+    var result = [],
+	indexs = cls? CONFIG.tags[cls]:Object.keys(CONFIG.index);
 
     for(var i in indexs){
-        var infos = indexs[i],
-            post = infos.post,
-            title = infos.title;
-        var link  = href + i;
+        var index = indexs[i];
+        var infos = CONFIG.index[index],
+            post = infos[3],
+            time = infos[2];
 
-        if (post != "1" || post!= 1) continue;
+        if (post != "0" || post!= 0) continue;
 
-        str += "<a class='menu-list-link list-group-item list-group-item-info' href='" + link + "''>" + title + "</a><br>";
+        time = new Date(time*1000);
+
+        var yy = time.getFullYear();
+        var yy_arts = result[yy];
+        if(yy_arts){
+            yy_arts.push([index, infos]);
+        }
+        else{
+            result[yy] = [[index, infos]];
+        }
     }
 
-    $(".menu-div").html(str);
+    return result;
+}
+
+function showmenu(cls){
+    var str = "",
+        href = "chapter.html?id=",
+        articles = get_articles_by_tag(cls);
+
+    var yy_keys = Object.keys(articles);
+    yy_keys = yy_keys.sort(function(a,b){return a-b?1:-1});
+
+    $.each(yy_keys, function(i, key){
+        var arts = articles[key],
+            mode = $("div.article-mode").clone();
+
+        str += '<div class="bundle row gutters fadeInDown animated">';
+        str += '<h2 class="post-year col span_2">'+key+'</h2>';
+        str += '<div class="posts-by-year col span_10">';
+
+        arts.sort(function(a,b){
+            return a[1][2]-b[1][2]?-1:1;
+        });
+
+        $.each(arts, function(j, art){
+            var art = arts[j],
+                index = art[0],
+                infos = art[1],
+                title = infos[0],
+                time = infos[2],
+                link = href + index;
+
+            time = new Date(time * 1000);
+            var yy = time.getFullYear();
+            var mm = time.getMonth()+1;
+            var dd = time.getDay();
+
+            mm = mm < 10 ? "0" + mm : mm;
+            dd = dd < 10 ? "0" + dd : dd;
+            time = yy+"-"+mm + "-" + dd;
+
+            str += '<article class="row gutters">';
+            str += '<a href="'+link+'" title="'+title+'" class="col span_8">'+title+'</a>';
+            str += '<div class="post-date col span_4">';
+            str += '<time datetime="'+time+'">'+time+'</time>';
+            str += "</div>";
+            str += "</article>";
+        });
+        str += "</div></div>";
+    });
+    $("section#articles").html(str);
+
+
 }

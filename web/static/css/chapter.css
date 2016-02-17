@@ -9,8 +9,13 @@
 
 .content-header{
     height: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
     font-size: 18px;
     color: #0f0f0f;
+    text-align:right;
+}
+#content{
+    margin-bottom: 100px;
+}
+#page{
+font-size:15px;
 }

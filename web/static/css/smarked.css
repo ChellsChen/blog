@@ -1,0 +1,12 @@
+@charset "UTF-8";
+/**
+ *
+ * @authors 陈小雪 (shell_chen@yeah.net)
+ * @date    2015-09-28 17:05:38
+ * @version $Id$
+ */
+span.tags-tex{
+    background-color: #d1d1d1;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
