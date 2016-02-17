@@ -77,8 +77,9 @@ function showmenu(cls){
         articles = get_articles_by_tag(cls);
 
     var yy_keys = Object.keys(articles);
-    yy_keys = yy_keys.sort(function(a,b){return a-b?1:-1});
+    yy_keys = yy_keys.sort(function(a,b){return a<b?1:-1});
 
+    console.log(articles);
     $.each(yy_keys, function(i, key){
         var arts = articles[key],
             mode = $("div.article-mode").clone();
@@ -87,8 +88,8 @@ function showmenu(cls){
         str += '<h2 class="post-year col span_2">'+key+'</h2>';
         str += '<div class="posts-by-year col span_10">';
 
-        arts.sort(function(a,b){
-            return a[1][2]-b[1][2]?-1:1;
+        arts = arts.sort(function(a, b){
+            return  parseInt(a[1][2])<parseInt(b[1][2])?1:-1;
         });
 
         $.each(arts, function(j, art){
@@ -106,7 +107,7 @@ function showmenu(cls){
 
             mm = mm < 10 ? "0" + mm : mm;
             dd = dd < 10 ? "0" + dd : dd;
-            time = yy+"-"+mm + "-" + dd;
+            time = mm + " - " + dd;
 
             str += '<article class="row gutters">';
             str += '<a href="'+link+'" title="'+title+'" class="col span_8">'+title+'</a>';
