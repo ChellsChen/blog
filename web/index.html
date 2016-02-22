@@ -9,13 +9,18 @@
 <link rel="stylesheet" href="static/css/animate.min.css">
 <link rel="stylesheet" href="static/css/main.css">
 <link rel="stylesheet" href="static/css/css.css">
+<link rel="stylesheet" href="css/index.css">
 
 <script type="text/javascript" src="static/js/jquery-2.1.3.min.js"}></script>
-<script type="text/javascript" src="static/js/layout.js"></script>
+<script type="text/javascript" src="fwiki/layout.js"></script>
+<script type="text/javascript" src="js/excanvas.js"></script>
 
 </head>
   <body>
     <div id="main">
+        <div class="class-navbar">
+            hahaha
+        </div>
         <div class="container azul">
             <header class="top row gutters fadeInLeft animated">
                 <div class="col span_2 center">
@@ -25,7 +30,7 @@
                 <nav class="col span_10 top-navbar">
                   <a href="http://fengidri.me/" title="Home" >Home</a>
                   <a href="#" title="blog" class="current-page">blog</a>
-                  <a href="https://github.com/ChellsChen" title="github" >Github</a>
+                  <a href="https://github.com/fengidri" title="github" >Github</a>
                 </nav>
             </header>
 
@@ -46,7 +51,26 @@
                 </div>
             </section>
 
+            <section>
+                <div id="year-class">
+                    <nav name="2016" class="year-navbar current-page">2016</nav>
+                    <nav name="2016" class="year-navbar">2015</nav>
+                    <nav name="2016" class="year-navbar">2014</nav>
+                </div>
+            </section>
+
             <section class="archive" id="articles">
+                <div class="bundle row gutters fadeInDown animated">
+                    <h2 class="post-year col span_2">2014</h2>
+                    <div class="posts-by-year col span_10 articles">
+                        <article class="row gutters">
+                            <a href="#" title="Demo post" class="col span_8">Demo post</a>
+                            <div class="post-date col span_4">
+                                <time datetime="2014-03-07">7 March</time>
+                            </div>
+                        </article>
+                    </div>
+                </div>
 
             </section>
             <footer>
@@ -73,7 +97,7 @@
 
 <script>
 $(document).ready(function(){
-    datainit();
+    // datainit();
 });
 </script>
 </body>
