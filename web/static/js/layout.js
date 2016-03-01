@@ -79,7 +79,6 @@ function showmenu(cls){
     var yy_keys = Object.keys(articles);
     yy_keys = yy_keys.sort(function(a,b){return a<b?1:-1});
 
-    console.log(articles);
     $.each(yy_keys, function(i, key){
         var arts = articles[key],
             mode = $("div.article-mode").clone();
@@ -100,19 +99,19 @@ function showmenu(cls){
                 time = infos[2],
                 link = href + index;
 
-            time = new Date(time * 1000);
-            var yy = time.getFullYear();
-            var mm = time.getMonth()+1;
-            var dd = time.getDay();
+            var tt = new Date(time * 1000);
+            var yy = tt.getFullYear();
+            var mm = tt.getMonth()+1;
+            var dd = tt.getDate();
 
             mm = mm < 10 ? "0" + mm : mm;
             dd = dd < 10 ? "0" + dd : dd;
-            time = mm + " - " + dd;
+            tt = mm + " - " + dd;
 
             str += '<article class="row gutters">';
             str += '<a href="'+link+'" title="'+title+'" class="col span_8">'+title+'</a>';
             str += '<div class="post-date col span_4">';
-            str += '<time datetime="'+time+'">'+time+'</time>';
+            str += '<time datetime="'+tt+'">'+tt+'</time>';
             str += "</div>";
             str += "</article>";
         });
